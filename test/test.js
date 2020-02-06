@@ -207,6 +207,21 @@ describe('OutputHash', () => {
                             }
                         );
                     });
+                    it('Works when only replacing hashes in manifest files', () => {
+                        webpackCompile('partial-replacement', mode, setFutureEmitAssets).then(
+                            sanityCheck
+                        );
+                    });
+
+                    it('Safety net works when only missing hashes with partial replacement', () =>
+                        webpackCompile('partial-replacement-with-error', mode, setFutureEmitAssets)
+                            .then(() => expect.fail('Did not expect compilation to pass'))
+                            .catch(err => {
+                                expect(err.message).to.include(
+                                    'Some files still had the old hashes'
+                                );
+                                expect(err.message).to.include('manifest.');
+                            }));
                 });
             });
         });
