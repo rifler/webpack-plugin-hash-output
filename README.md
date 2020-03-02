@@ -9,13 +9,13 @@ Plugin to replace webpack chunkhash with an md5 hash of the final file conent.
 With npm
 
 ```
-npm install webpack-plugin-hash-output --save-dev
+npm install @atlassian/webpack-plugin-hash-output --save-dev
 ```
 
 With yarn
 
 ```
-yarn add webpack-plugin-hash-output --dev
+yarn add @atlassian/webpack-plugin-hash-output --dev
 ```
 
 ## Why?
